@@ -4,11 +4,12 @@
   "description": "REST Countries API with color theme switcher",
   "main": "./src/index.html",
   "scripts": {
-    "build": "set NODE_ENV=production&&webpack",
-    "start": "webpack-dev-server"
+    "build": "webpack",
+    "start": "webpack serve",
+    "watch": "webpack --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Andro",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^5.55.1",
