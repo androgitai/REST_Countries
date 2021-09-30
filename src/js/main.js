@@ -1,3 +1,5 @@
+import '../style/style.scss';
+
 let items = {
   coke: 1,
   chips: 2,
