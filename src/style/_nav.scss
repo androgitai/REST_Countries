@@ -1,0 +1,22 @@
+header {
+  position: relative;
+  box-shadow: 0 0 5px var(--shadow);
+  background: var(--bg-card);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.btn-mode {
+  color: var(--text);
+  display: inline-block;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}

@@ -1,14 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="https://kit.fontawesome.com/ba0aa7f5da.js" crossorigin="anonymous"></script>
     <title>REST Countries</title>
   </head>
   <body>
-    <section class="hero">
-      <h1>Hello</h1>
-    </section>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <h1>Where in the world?</h1>
+          <button class="btn-mode"><i class="far fa-moon btn-mode-icon"></i> Dark Mode</button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section class="section-search">
+          <div class="searchbar">
+            <button class="btn-search" name="search" type="submit"><i class="fas fa-search"></i></button>
+            <input class="search-input" placeholder="Search for a country..." type="search" name="search" id="search" />
+          </div>
+          <div class="select">
+            <select placeholder="Filter" class="region-select" name="region-select" id="region-select">
+              <option value="" disabled selected hidden>Filter by Region <i class="fas fa-chevron-down"></i></option>
+              <option value="africa">Africa</option>
+              <option value="america">America</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+            <i class="fas fa-chevron-down region-select-icon"></i>
+          </div>
+        </section>
+        <section class="countries">
+          <div class="card">
+            <img class="card-img" src="" alt="Country Flag" />
+            <div class="card-details">
+              <h2 class="card-country">UK</h2>
+              <p class="population"><span>Population:</span></p>
+              <p class="region"><span>Region:</span></p>
+              <p class="capital"><span>Capital:</span></p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="" alt="Country Flag" />
+            <div class="card-details">
+              <h2 class="card-country">UK</h2>
+              <p class="population"><span>Population:</span></p>
+              <p class="region"><span>Region:</span></p>
+              <p class="capital"><span>Capital:</span></p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="" alt="Country Flag" />
+            <div class="card-details">
+              <h2 class="card-country">UK</h2>
+              <p class="population"><span>Population:</span></p>
+              <p class="region"><span>Region:</span></p>
+              <p class="capital"><span>Capital:</span></p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="" alt="Country Flag" />
+            <div class="card-details">
+              <h2 class="card-country">UK</h2>
+              <p class="population"><span>Population:</span></p>
+              <p class="region"><span>Region:</span></p>
+              <p class="capital"><span>Capital:</span></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p>Copyright</p>
+      </div>
+    </footer>
   </body>
 </html>

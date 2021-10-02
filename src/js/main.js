@@ -1,12 +1,12 @@
 import '../style/style.scss';
-// import image from '../../design/desktop-design-home-dark.jpg';
+import image from '../img/flag.jpg';
 
-// document.querySelector('.hero').style.background = `url('${image}')`;
-// document.querySelector('.hero img').src = image;
-let items = {
-  coke: 1,
-  chips: 2,
-  chicken: 4,
-};
+const colorModeButton = document.querySelector('.btn-mode');
 
-console.log(items);
+document.querySelectorAll('.card-img').forEach(card => (card.src = image));
+
+colorModeButton.addEventListener('click', () => {
+  const theme = document.documentElement.getAttribute('data-theme');
+  console.log(theme);
+  document.documentElement.setAttribute('data-theme', `${theme === 'light' ? 'dark' : 'light'}`);
+});

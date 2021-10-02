@@ -1,28 +1,55 @@
-@use 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-}
-
-body {
   box-sizing: border-box;
-  background: variables.$bg;
+}
+
+body,
+html {
+  font-family: 'Nunito Sans', sans-serif;
+  line-height: 1.5;
   color: var(--text);
+  background: var(--bg);
+  transition: all 300ms !important;
 }
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ul {
+  list-style: none;
 }
-
-button {
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+}
+h1 {
   font-size: 1.5rem;
 }
+h2 {
+  font-size: 1.1rem;
+}
 
-.hero {
-  // background: url('../../design/desktop-design-home-light.jpg') center center/cover;
+p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  span {
+    font-weight: 600;
+  }
+}
+
+footer {
   width: 100%;
-  height: 500px;
+
+  text-align: center;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4.8rem;
 }

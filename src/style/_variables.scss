@@ -1,5 +1,14 @@
-:root {
-  --text: #333;
+html[data-theme='light'] {
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+  --bg: hsl(0, 0%, 98%);
+  --bg-card: hsl(0, 0%, 100%);
+  --shadow: #ddd;
 }
-
-$bg: darkorange;
+html[data-theme='dark'] {
+  --text: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 52%);
+  --bg: hsl(207, 26%, 17%);
+  --bg-card: hsl(209, 23%, 22%);
+  --shadow: #222;
+}
