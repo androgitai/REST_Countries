@@ -9,12 +9,33 @@ module.exports = {
   mode: mode,
   entry: './src/js/main.js',
 
+  output: {
+    assetModuleFilename: 'images/[hash][ext][query]',
+  },
+
   devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.s?css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
+        // type: 'asset',
+        // type: 'asset/inline',
+        // parser: {
+        //   maxSize: 30 * 1024,
+        // },
+      },
+      {
+        test: /\.(s[ac]|c)ss$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath: '' },
+          },
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.js$/,
