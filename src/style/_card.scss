@@ -12,15 +12,21 @@
   background: var(--bg-card);
   border-radius: 5px;
   box-shadow: 0 0 5px var(--shadow);
+  display: flex;
+  flex-direction: column;
+
   img {
     height: 48%;
     border-radius: 5px 5px 0 0;
+    background: var(--bg);
   }
   &-details {
     display: flex;
     flex-direction: column;
+    height: 52%;
     align-items: flex-start;
-    padding: 1.2rem;
+    justify-content: center;
+    padding: 0 1.2rem;
   }
   &-country {
     padding: 0.6rem 0;

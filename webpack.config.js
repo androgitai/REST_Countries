@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   mode: mode,
-  entry: './src/js/main.js',
+  entry: ['@babel/polyfill', './src/js/main.js'],
 
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -43,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_module/,
+        exclude: /node_modules/,
         use: 'babel-loader',
       },
     ],
