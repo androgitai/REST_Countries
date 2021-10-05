@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   mode: mode,
-  entry: ['@babel/polyfill', './src/js/main.js'],
+  entry: ['@babel/polyfill', './src/js/controller.js'],
 
   output: {
     path: path.resolve(__dirname, 'dist'),
