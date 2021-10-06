@@ -15,6 +15,12 @@ export const getCountriesData = async function () {
         region: entry.region,
         capital: entry.capital?.[0],
         flag: entry.flags.svg,
+        nativeName: entry.name.nativeName ? Object.values(entry.name.nativeName)[0].official : entry.name.official,
+        subRegion: entry.subregion,
+        tld: entry.tld ? entry.tld[0] : '',
+        currencies: entry.currencies ? Object.keys(entry.currencies) : '',
+        languages: entry.languages ? Object.values(entry.languages) : '',
+        borders: entry.borders ? entry.borders : '',
       };
     });
   } catch (error) {
@@ -25,7 +31,7 @@ export const getCountriesData = async function () {
 export const searchCountries = async function (country) {
   try {
     const data = await getCountriesJSON(`${API_URL}name/${country}`);
-    if (!data) return;
+    if (!data | (data.status === 404)) throw new Error('Country not found', data.message);
 
     state = data.map(entry => {
       return {

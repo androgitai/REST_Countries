@@ -3,7 +3,6 @@ const countriesEl = document.querySelector('.countries');
 const regionSelector = document.querySelector('.region-select');
 const searchField = document.querySelector('.searchbar');
 
-console.log(regionSelector);
 ////////Dark mode
 colorModeButton.addEventListener('click', () => {
   const theme = document.documentElement.getAttribute('data-theme');
@@ -23,6 +22,14 @@ export const countriesFilterHandler = function (handler) {
   regionSelector.addEventListener('change', () => handler(regionSelector.value));
 };
 
+export const renderError = function () {
+  clearCountries();
+  countriesEl.innerHTML = `
+    <h2 style='color: var(--text)'>No country found with that query!
+    Please try again!</h2>
+    `;
+};
+
 export const getQuery = function () {
   const query = document.querySelector('.search-input').value;
   clearInput();
@@ -30,7 +37,7 @@ export const getQuery = function () {
 };
 
 const clearInput = function () {
-  const query = (document.querySelector('.search-input').value = '');
+  document.querySelector('.search-input').value = '';
 };
 
 const generateMarkup = function (data) {

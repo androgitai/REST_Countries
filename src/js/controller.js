@@ -19,11 +19,12 @@ const controlFilterCountries = function (region) {
 const controlSearchCountries = async function () {
   try {
     const query = view.getQuery();
+    if (!query) return;
     await model.searchCountries(query);
-    console.log(model.state);
     view.renderCountries(model.state);
   } catch (error) {
     console.error(error);
+    view.renderError();
   }
 };
 
