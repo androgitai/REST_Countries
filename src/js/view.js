@@ -1,3 +1,5 @@
+let Numeral = require('numeral');
+
 const colorModeButton = document.querySelector('.btn-mode');
 const countriesEl = document.querySelector('.countries-container');
 const regionSelector = document.querySelector('.region-select');
@@ -35,6 +37,15 @@ export const countryDetailsHandler = function (handler) {
   });
 };
 
+export const countryNeighbourRenderHandler = function (handler) {
+  sectionCountry.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-secondary');
+    if (!btn) return;
+    const btnData = btn.dataset.country;
+    handler(btnData);
+  });
+};
+
 export const renderError = function () {
   clearCountriesEl();
   countriesEl.innerHTML = `
@@ -58,10 +69,12 @@ const generateCountriesMarkup = function (data) {
     .map(
       country => `
     <div class="card" data-country="${country.cca3}"">
-      <img class="card-img" src="${country.flag}" alt="Country Flag" />
+      <div class="card-img">
+        <img src="${country.flag}" alt="Country Flag" />
+      </div>  
       <div class="card-details">
         <h2 class="card-country">${country.name}</h2>
-        <p class="population"><span>Population:</span>${country.population}</p>
+        <p class="population"><span>Population:</span>${Numeral(country.population).format('0,0')}</p>
         <p class="region"><span>Region:</span>${country.region}</p>
         <p class="capital"><span>Capital:</span>${country.capital ? country.capital : 'None'}</p>
       </div>
@@ -79,7 +92,7 @@ const generateCountryDetailsMarkup = function (data) {
       <h3>${data.name}</h3>
       <div class="countries-details-text-details">
         <p><span>Native Name: </span>${data?.nativeName}</p>
-        <p><span>Population: </span>${data.population}</p>
+        <p><span>Population: </span>${Numeral(data.population).format('0,0')}</p>
         <p><span>Region: </span>${data.region}</p>
         <p><span>Sub Region: </span>${data.subRegion}</p>
         <p><span>Capital: </span>${data.capital}</p>
@@ -88,13 +101,13 @@ const generateCountryDetailsMarkup = function (data) {
         <p><span>Languages: </span>${data.languages}</p>
       </div>
       <div class="countries-details-text-borders">
-        <p class="capital"><span>Border Countries:</span></p>
+        <p class="borders"><span>Border Countries:</span></p>
         ${
           data.borders
             ? data.borders
-                .map(border => `<button class="btn-secondary" data-country='${data.border}'>${border}</button>`)
+                .map(border => `<button class="btn-secondary" data-country='${border.cca3}'>${border.name}</button>`)
                 .join('')
-            : ''
+            : 'None'
         }
         
       </div>
@@ -110,9 +123,13 @@ const clearSectionCountries = function () {
   sectionCountry.innerHTML = '';
 };
 
-const pageChangerNav = function () {
-  searchBar.classList.toggle('hidden');
-  btnBack.classList.toggle('hidden');
+const pageChangerForward = function () {
+  searchBar.classList.add('hidden');
+  btnBack.classList.remove('hidden');
+};
+const pageChangerBackward = function () {
+  searchBar.classList.remove('hidden');
+  btnBack.classList.add('hidden');
 };
 
 export const renderCountries = function (data) {
@@ -126,7 +143,8 @@ export const goBackToMainPage = function (handler) {
     const btn = e.target.closest('.btn-primary');
     if (!btn) return;
     clearSectionCountries();
-    pageChangerNav();
+    pageChangerBackward();
+    regionSelector.selectedIndex = '0';
     handler();
   });
 };
@@ -134,6 +152,7 @@ export const goBackToMainPage = function (handler) {
 export const renderCountryDetails = function (data) {
   const markup = generateCountryDetailsMarkup(data);
   clearCountriesEl();
-  pageChangerNav();
+  clearSectionCountries();
+  pageChangerForward();
   sectionCountry.insertAdjacentHTML('afterbegin', markup);
 };
