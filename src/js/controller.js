@@ -25,7 +25,7 @@ const controlSearchCountries = async function () {
       view.renderCountries(model.state);
       return;
     }
-    await model.searchCountries(query);
+    await model.getCountriesData(query);
     view.renderCountries(model.state);
   } catch (error) {
     console.error(error);
@@ -36,7 +36,7 @@ const controlSearchCountries = async function () {
 const controlCountryDetails = async function (cca3) {
   try {
     await model.searchCountries(cca3);
-    view.renderCountryDetails(model.state[0]);
+    view.renderCountryDetails(model.state);
   } catch (error) {
     console.error(error);
   }
@@ -48,5 +48,6 @@ const init = function () {
   view.searchCountriesHandler(controlSearchCountries);
   view.countryDetailsHandler(controlCountryDetails);
   view.goBackToMainPage(controlCountriesRender);
+  view.countryNeighbourRenderHandler(controlCountryDetails);
 };
 init();

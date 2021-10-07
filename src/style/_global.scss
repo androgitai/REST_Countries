@@ -37,6 +37,7 @@ p {
   line-height: 1.6;
   span {
     font-weight: 600;
+    margin-right: 0.2rem;
   }
 }
 
@@ -83,6 +84,7 @@ footer {
   padding: 0.4rem 1.5rem;
   box-shadow: 0 0 10px var(--shadow);
   transition: all 0.2s ease-in-out;
+
   &:hover {
     background: var(--bg);
   }
