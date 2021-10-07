@@ -19,7 +19,12 @@ const controlFilterCountries = function (region) {
 const controlSearchCountries = async function () {
   try {
     const query = view.getQuery();
-    if (!query) return;
+    //'Empty' search gets all countries
+    if (!query) {
+      await model.getCountriesData();
+      view.renderCountries(model.state);
+      return;
+    }
     await model.searchCountries(query);
     view.renderCountries(model.state);
   } catch (error) {
@@ -28,9 +33,20 @@ const controlSearchCountries = async function () {
   }
 };
 
+const controlCountryDetails = async function (cca3) {
+  try {
+    await model.searchCountries(cca3);
+    view.renderCountryDetails(model.state[0]);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const init = function () {
   controlCountriesRender();
   view.countriesFilterHandler(controlFilterCountries);
   view.searchCountriesHandler(controlSearchCountries);
+  view.countryDetailsHandler(controlCountryDetails);
+  view.goBackToMainPage(controlCountriesRender);
 };
 init();

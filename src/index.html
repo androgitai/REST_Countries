@@ -18,24 +18,56 @@
     </header>
     <main>
       <div class="container">
-        <section class="section-search">
-          <form class="searchbar">
-            <button class="btn-search" name="search" type="submit"><i class="fas fa-search"></i></button>
-            <input class="search-input" placeholder="Search for a country..." type="search" name="search" id="search" />
-          </form>
-          <div class="select">
-            <select placeholder="Filter" class="region-select" name="region-select" id="region-select">
-              <option value="" disabled selected hidden>Filter by Region <i class="fas fa-chevron-down"></i></option>
-              <option value="africa">Africa</option>
-              <option value="americas">America</option>
-              <option value="asia">Asia</option>
-              <option value="europe">Europe</option>
-              <option value="oceania">Oceania</option>
-            </select>
-            <i class="fas fa-chevron-down region-select-icon"></i>
+        <section class="search">
+          <button class="hidden btn-primary"><i class="fas fa-long-arrow-alt-left"></i>Back</button>
+          <div class="section-search">
+            <form class="searchbar">
+              <button class="btn-search" name="search" type="submit"><i class="fas fa-search"></i></button>
+              <input
+                class="search-input"
+                placeholder="Search for a country..."
+                type="search"
+                name="search"
+                id="search"
+              />
+            </form>
+            <div class="select">
+              <select placeholder="Filter" class="region-select" name="region-select" id="region-select">
+                <option value="" disabled selected hidden>Filter by Region <i class="fas fa-chevron-down"></i></option>
+                <option value="africa">Africa</option>
+                <option value="americas">America</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceania">Oceania</option>
+              </select>
+              <i class="fas fa-chevron-down region-select-icon"></i>
+            </div>
           </div>
         </section>
-        <section class="countries">
+        <section class="country">
+          <!-- <div class="countries-details">
+            <img class="countries-details-img" src="" alt="" />
+            <div class="countries-details-text">
+              <h3>Belgium</h3>
+              <div class="countries-details-text-details">
+                <p class="population"><span>Population:</span></p>
+                <p class="region"><span>Region:</span></p>
+                <p class="capital"><span>Capital:</span></p>
+                <p class="capital"><span>Capital:</span></p>
+                <p class="capital"><span>Capital:</span></p>
+                <p class="capital"><span>Capital:</span></p>
+                <p class="capital"><span>Capital:</span></p>
+                <p class="capital"><span>Capital:</span></p>
+              </div>
+              <div class="countries-details-text-borders">
+                <p class="capital"><span>Border Countries:</span></p>
+
+                <button class="btn-secondary">France</button>
+              </div>
+            </div>
+          </div> -->
+        </section>
+        <section class="countries-container">
           <!-- <div class="card">
             <img class="card-img" src="" alt="Country Flag" />
             <div class="card-details">

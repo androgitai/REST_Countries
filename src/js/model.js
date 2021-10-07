@@ -10,7 +10,27 @@ export const getCountriesData = async function () {
 
     state = data.map(entry => {
       return {
-        name: entry.name.official,
+        name: entry.name.common,
+        population: entry.population,
+        region: entry.region,
+        capital: entry.capital?.[0],
+        flag: entry.flags.svg,
+        cca3: entry.cca3,
+      };
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const searchCountries = async function (cca3) {
+  try {
+    const data = await getCountriesJSON(`${API_URL}alpha?codes=${cca3}`);
+    if (!data | (data.status === 404)) throw new Error('Country not found', data.message);
+
+    state = data.map(entry => {
+      return {
+        name: entry.name.common,
         population: entry.population,
         region: entry.region,
         capital: entry.capital?.[0],
@@ -21,25 +41,7 @@ export const getCountriesData = async function () {
         currencies: entry.currencies ? Object.keys(entry.currencies) : '',
         languages: entry.languages ? Object.values(entry.languages) : '',
         borders: entry.borders ? entry.borders : '',
-      };
-    });
-  } catch (error) {
-    throw error;
-  }
-};
-
-export const searchCountries = async function (country) {
-  try {
-    const data = await getCountriesJSON(`${API_URL}name/${country}`);
-    if (!data | (data.status === 404)) throw new Error('Country not found', data.message);
-
-    state = data.map(entry => {
-      return {
-        name: entry.name.official,
-        population: entry.population,
-        region: entry.region,
-        capital: entry.capital?.[0],
-        flag: entry.flags.svg,
+        cca3: entry.cca3,
       };
     });
   } catch (error) {
