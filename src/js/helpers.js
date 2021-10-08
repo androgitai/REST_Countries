@@ -10,7 +10,7 @@ const timeout = function (s) {
 
 export const getCountriesJSON = async function (url) {
   try {
-    const res = await Promise.race([fetch(url), timeout(1)]);
+    const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
     if (!res) return;
     const data = await res.json();
     return data;
