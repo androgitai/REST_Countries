@@ -63,7 +63,7 @@ export const clearCountriesEl = function () {
   countriesEl.innerHTML = '';
 };
 
-const clearSectionCountries = function () {
+export const clearSectionCountries = function () {
   sectionCountry.innerHTML = '';
 };
 
@@ -75,11 +75,10 @@ const pageChangerBackward = function () {
   searchBar.classList.remove('hidden');
   btnBack.classList.add('hidden');
 };
-export const renderError = function () {
+export const renderError = function (error) {
   clearCountriesEl();
   countriesEl.innerHTML = `
-    <h2 style='color: var(--text)'>No country found with that query!
-    Please try again!</h2>
+    <h2 style='color: var(--text)'>${error}</h2>
     `;
 };
 

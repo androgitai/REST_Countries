@@ -21,7 +21,8 @@ const controlCountries = async function () {
     view.renderCountries(model.state);
   } catch (error) {
     console.error(error);
-    view.renderError();
+    view.renderError(error.message);
+    view.clearSectionCountries();
   }
 };
 
@@ -33,6 +34,8 @@ const controlCountryDetails = async function (cca3) {
     view.renderCountryDetails(model.state);
   } catch (error) {
     console.error(error);
+    view.clearSectionCountries();
+    view.renderError(error.message);
   }
 };
 
