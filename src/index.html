@@ -12,17 +12,28 @@
       <div class="container">
         <nav class="nav">
           <h1>Where in the world?</h1>
-          <button class="btn-mode"><i class="far fa-moon btn-mode-icon"></i> Dark Mode</button>
+          <button class="btn-mode" type="button" title="Dark Mode" aria-label="Dark Mode">
+            <i class="far fa-moon btn-mode-icon"></i>Dark Mode
+          </button>
         </nav>
       </div>
     </header>
     <main>
       <div class="container">
         <section class="search">
-          <button class="hidden btn-primary"><i class="fas fa-long-arrow-alt-left"></i>Back</button>
+          <button class="hidden btn-primary" aria-label="Back" title="Back" type="button">
+            <i class="fas fa-long-arrow-alt-left"></i>Back
+          </button>
           <div class="section-search">
             <form class="searchbar">
-              <button class="btn-search" name="search" type="submit">
+              <button
+                class="btn-search"
+                name="search"
+                type="submit"
+                aria-label="Search Submit"
+                title="Submit"
+                type="button"
+              >
                 <i class="fas fa-search" aria-hidden="true"></i>
               </button>
               <input
