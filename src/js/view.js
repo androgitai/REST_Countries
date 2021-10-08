@@ -1,4 +1,5 @@
-let Numeral = require('numeral');
+import Numeral from 'numeral';
+import icons from '../img/icons.svg';
 
 const colorModeButton = document.querySelector('.btn-mode');
 const btnBack = document.querySelector('.btn-primary');
@@ -46,6 +47,34 @@ export const countryNeighbourRenderHandler = function (handler) {
   });
 };
 
+export const renderSpinner = function () {
+  const markup = `
+    <div class="spinner">
+      <svg>
+        <use href="${icons}#icon-loader"></use>
+      </svg>
+    </div>
+  `;
+  clearSectionCountries();
+  sectionCountry.insertAdjacentHTML('afterbegin', markup);
+};
+
+export const clearCountriesEl = function () {
+  countriesEl.innerHTML = '';
+};
+
+const clearSectionCountries = function () {
+  sectionCountry.innerHTML = '';
+};
+
+const pageChangerForward = function () {
+  searchBar.classList.add('hidden');
+  btnBack.classList.remove('hidden');
+};
+const pageChangerBackward = function () {
+  searchBar.classList.remove('hidden');
+  btnBack.classList.add('hidden');
+};
 export const renderError = function () {
   clearCountriesEl();
   countriesEl.innerHTML = `
@@ -115,26 +144,11 @@ const generateCountryDetailsMarkup = function (data) {
   </div>
   `;
 };
-const clearCountriesEl = function () {
-  countriesEl.innerHTML = '';
-};
-
-const clearSectionCountries = function () {
-  sectionCountry.innerHTML = '';
-};
-
-const pageChangerForward = function () {
-  searchBar.classList.add('hidden');
-  btnBack.classList.remove('hidden');
-};
-const pageChangerBackward = function () {
-  searchBar.classList.remove('hidden');
-  btnBack.classList.add('hidden');
-};
 
 export const renderCountries = function (data) {
   const markup = generateCountriesMarkup(data);
   clearCountriesEl();
+  clearSectionCountries();
   countriesEl.insertAdjacentHTML('afterbegin', markup);
 };
 
@@ -150,10 +164,10 @@ export const goBackToMainPage = function (handler) {
 };
 
 export const renderCountryDetails = function (data) {
+  window.scrollTo(0, 0);
+  pageChangerForward();
   const markup = generateCountryDetailsMarkup(data);
   clearCountriesEl();
   clearSectionCountries();
-  pageChangerForward();
-  window.scrollTo(0, 0);
   sectionCountry.insertAdjacentHTML('afterbegin', markup);
 };

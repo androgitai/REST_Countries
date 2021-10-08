@@ -16,6 +16,12 @@ html {
   background: var(--bg);
   transition: all 200ms !important;
 }
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 ul {
   list-style: none;
 }
@@ -42,11 +48,11 @@ p {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-
   text-align: center;
-  z-index: -1;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .container {
