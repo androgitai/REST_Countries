@@ -22,7 +22,9 @@
           <button class="hidden btn-primary"><i class="fas fa-long-arrow-alt-left"></i>Back</button>
           <div class="section-search">
             <form class="searchbar">
-              <button class="btn-search" name="search" type="submit"><i class="fas fa-search"></i></button>
+              <button class="btn-search" name="search" type="submit">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </button>
               <input
                 class="search-input"
                 placeholder="Search for a country..."
@@ -32,7 +34,7 @@
               />
             </form>
             <div class="select">
-              <select placeholder="Filter" class="region-select" name="region-select" id="region-select">
+              <select class="region-select" name="region-select" id="region-select">
                 <option value="" disabled selected hidden>Filter by Region <i class="fas fa-chevron-down"></i></option>
                 <option value="africa">Africa</option>
                 <option value="americas">America</option>
