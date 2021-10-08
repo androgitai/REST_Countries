@@ -1,0 +1,36 @@
+.btn-primary {
+  display: block;
+  background: var(--bg-card);
+  color: var(--text);
+  padding: 0.65rem 2.3rem;
+  margin: 5rem 0;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 10px var(--shadow);
+  transition: all 0.2s ease-in-out;
+
+  i {
+    display: inline;
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    background: var(--bg);
+  }
+}
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--input);
+  flex: 1;
+  max-width: 150px;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 1.5rem;
+  box-shadow: 0 0 10px var(--shadow);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: var(--bg);
+  }
+}

@@ -1,13 +1,13 @@
 let Numeral = require('numeral');
 
 const colorModeButton = document.querySelector('.btn-mode');
-const countriesEl = document.querySelector('.countries-container');
+const btnBack = document.querySelector('.btn-primary');
 const regionSelector = document.querySelector('.region-select');
 const searchField = document.querySelector('.searchbar');
 const searchBar = document.querySelector('.section-search');
-const btnBack = document.querySelector('.btn-primary');
-const sectionCountry = document.querySelector('.country');
 const sectionSearch = document.querySelector('.search');
+const sectionCountry = document.querySelector('.country');
+const countriesEl = document.querySelector('.countries-container');
 
 ////////Dark mode
 colorModeButton.addEventListener('click', () => {
@@ -86,11 +86,11 @@ const generateCountriesMarkup = function (data) {
 
 const generateCountryDetailsMarkup = function (data) {
   return `
-  <div class="countries-details">
-    <img class="countries-details-img" src="${data.flag}" alt="${data.name}" />
-    <div class="countries-details-text">
+  <div class="country-details">
+    <img class="country-details-img" src="${data.flag}" alt="${data.name}" />
+    <div class="country-details-text">
       <h3>${data.name}</h3>
-      <div class="countries-details-text-details">
+      <div class="country-details-text-details">
         <p><span>Native Name: </span>${data?.nativeName}</p>
         <p><span>Population: </span>${Numeral(data.population).format('0,0')}</p>
         <p><span>Region: </span>${data.region}</p>
@@ -100,7 +100,7 @@ const generateCountryDetailsMarkup = function (data) {
         <p><span>Currencies: </span>${data.currencies}</p>
         <p><span>Languages: </span>${data.languages}</p>
       </div>
-      <div class="countries-details-text-borders">
+      <div class="country-details-text-borders">
         <p class="borders"><span>Border Countries:</span></p>
         ${
           data.borders
@@ -154,5 +154,6 @@ export const renderCountryDetails = function (data) {
   clearCountriesEl();
   clearSectionCountries();
   pageChangerForward();
+  window.scrollTo(0, 0);
   sectionCountry.insertAdjacentHTML('afterbegin', markup);
 };

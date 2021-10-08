@@ -7,6 +7,8 @@
     min-height: 70vh;
     justify-content: center;
   }
+}
+.country {
   &-details {
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
