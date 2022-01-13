@@ -57,6 +57,6 @@ I love working with REST Apis and JSON data.
 
 - Website - [Andras Kelemen](https://www.your-site.com)
 - Frontend Mentor - [@androgitai](https://www.frontendmentor.io/profile/androgitai)
-- Twitter - [@yourusername](https://www.twitter.com/AndrasKelemen3)
+- Twitter - [@AndrasKelemen3](https://www.twitter.com/AndrasKelemen3)
 
 
