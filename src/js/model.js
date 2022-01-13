@@ -60,16 +60,6 @@ export const searchCountries = async function (cca3) {
   }
 };
 
-// export const searchCountryNeightbours = async function () {
-//   try {
-//     const dataBorders = await getCountriesJSON(`${API_URL}alpha?codes=${state[0].borders}`);
-//     if (!data | (data.status === 404)) throw new Error('No Border countries', data.message);
-//     console.log(dataBorders);
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
 export const filterCountries = function (region) {
   const fileteredCountries = state.filter(country => country.region.toLowerCase() === region);
   return fileteredCountries;
